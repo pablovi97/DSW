@@ -104,8 +104,8 @@
 
     unset($_POST['btn']);
     unset($_POST['clave']);
-   //header("Location: http://localhost/practicasPHP/IMC/index1.php");
-    //die();
+    header("Location: http://localhost/practicasPHP/IMC/index1.php");
+    die();
     ?>
 
 
