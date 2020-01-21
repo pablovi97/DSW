@@ -13,21 +13,25 @@ die();
 }
 
 
+
 function leerfichero($clave){
     $fp = fopen("archivo.txt", "r");
     $orden = 0;
     while (!feof($fp)){
         $linea = fgets($fp);
        $arr = explode('-' ,$linea);
-      if($arr[0] == $clave){
+     if($arr[0] == $clave){
           $orden = $arr[2];
           fclose($fp);
           return $orden;
 
       }
-      return -1;
+   
+    
     }
     fclose($fp);
+    return -1;
+
 
 }
 
