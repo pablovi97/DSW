@@ -32,6 +32,7 @@
                         <p>alquien@example.com, otro@example.com ,...</p>
 
                     </div>
+                    <input type="text" name="numalums" id="" placeholder=" numero de alumnos"><br>
                     <textarea name="correos" id="" cols="30" rows="10"></textarea><br>
                     <input type="submit" class="btn btn-success" value="Enviar">
 
@@ -64,7 +65,7 @@
                 <label id="fail"></label>
             </div>
             <div class="col-4">
-                <!---
+             <!--
                 <p> echate una partida amigo!:</p>
                 <iframe id="iframe-in-game" class="direct-field" 
                 src="https://www.cooljuegos.com/embed/mortal-kombat-4/" marginwidth="0" marginheight="0" frameborder="0" scrolling="no" width="640"

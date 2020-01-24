@@ -2,33 +2,72 @@
 //$clave . "-" .$correo. "-" .$num
 $clave = $_POST['clave'];
 
-$res = leerfichero($clave);
-if($res != -1){
-echo("acertado!");
-header('location:elecciondestios.html');
-die();
-}else{
-    header('location:index.php?fail=clave_mal_introducida');
+$res = leerarray($clave);
+
+//echo($res);
+
+if ($res != -1) {
+    //echo ("acertado!");
+    if($res == 0){
+        header('location:elecciondestios.php?orden=' . $res);
+
+        die();
+    }else{
+        $params = localizar_sitios();
+        header('location:elecciondestios.php?orden='. $res .'&param='.$params);
+        die();
+    }
+  
+} else {
+    header('location:index.php');
     die();
 }
 
 
-function leerfichero($clave){
-    $fp = fopen("archivo.txt", "r");
+function leerarray($clave)
+{
+    include('archivo2.txt');
     $orden = 0;
-    while (!feof($fp)){
-        $linea = fgets($fp);
-       $arr = explode('-' ,$linea);
-      if($arr[0] == $clave){
-          $orden = $arr[2];
-          fclose($fp);
-          return $orden;
+   // var_dump($array2);
+    for ($i = 0; $i <= count($array2); $i++) {
+        if( isset($array2[$i])){
+        for ($j = 0; $j <= count($array2[$i]); $j++) {
+            if ($array2[$i][0] == $clave) {
+                $orden = $array2[$i][1];
 
-      }
-      return -1;
+                return $orden;
+            }
+        }
     }
-    fclose($fp);
-
+    }
+    return -1;
 }
 
-?>
+function localizar_sitios(){
+    include('archivo2.txt');
+$sitios_cojidos = "";
+$ultimapos = 0;
+$temp = 0;
+    for ($i = 0; $i <= count($array2); $i++) {
+        if( isset($array2[$i])){
+        for ($j = 0; $j <= count($array2[$i]); $j++) {
+            if ($array2[$i][3] != -1) {
+               
+                if($temp != $array2[$i][3]){
+                    $temp = $array2[$i][3];
+                    $sitios_cojidos.= $array2[$i][3] .",";
+                }
+             
+
+                if($array2[$i][1]> $ultimapos ){
+                    $ultimapos = $array2[$i][1] ;
+                }
+              
+            }
+        }
+    }
+    }
+    return $sitios_cojidos.'-'.$ultimapos;
+
+
+}
