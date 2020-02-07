@@ -21,6 +21,9 @@ class PedidoController extends Controller
         {
         }
         function mostraritem(Request $request){
+           // $prueba = session()->get('prueba');
+          //  echo $prueba;
+           // die();
             $id =$request->input('id');
             $producto = Producto::find($id);
             return view('visorProducto',compact('producto'));

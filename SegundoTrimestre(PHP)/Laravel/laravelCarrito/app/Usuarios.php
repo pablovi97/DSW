@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
 /**
  * @property int $id_usuario
@@ -12,7 +13,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property Comentario[] $comentarios
  * @property Pedido[] $pedidos
  */
-class Usuarios extends Model
+class Usuarios extends Authenticatable
 {
     /**
      * The table associated with the model.

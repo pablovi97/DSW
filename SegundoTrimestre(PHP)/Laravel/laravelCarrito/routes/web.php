@@ -11,16 +11,17 @@
 |
 */
 
-
+Auth::routes();
 Route::get('/', 'ListarProductos@listar');
 
 Route::post('/pedido' ,'agregarProductos@recogerProductos');
-Route::post('/subirPedido' ,'verPedidos@listarPedidos');
+Route::get('/subirPedido' ,'verPedidos@listarPedidos');
 
 Route::get('/mostrarproducto', 'PedidoController@mostraritem');
 
-//Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/home', 'Factura@listarFactura')->name('home');
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/subirBDD', 'agregarProductos@hacerCompra');
+//Route::get('/home', 'Factura@listarFactura')->name('home');
 //nombrecontrolador@metodo
 /*
 Route::get('/', function () {
@@ -31,7 +32,7 @@ Route::get('/', function () {
 
 
 
-Auth::routes();
+
 
 /*
 Route::get('/home', 'HomeController@index')->name('home');

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\DetallePedido ;
+use App\DetallePedido;
 use App\Producto;
 use App\Pedidos;
 use Exception;
@@ -17,22 +17,19 @@ class ListarProductos extends Controller
 
     function listar()
     {
-/**
-         * @var Productos $producto
-         *
-         */
-        $pedido =  session()->get('pedido');
+        $ped = session()->get('pedido');
+        if ($ped) {
+           foreach($ped->detallePedidos as $valor){
+               echo $valor;
+           }
 
-        if (isset($pedido)) {
-       } else {
-            $pedido = new Pedidos();
-            //var_dump($pedido);
-            //die();
-            session(['pedido' => $pedido]);
+        } else {
+            echo("no hay pedido");
         }
-     
-    $productos = Producto::paginate(2);
-    return view('listarProductos', compact('productos'));
 
+        //session()->put('prueba', $prueba);
+      
+        $productos = Producto::paginate(2);
+        return view('listarProduct', compact('productos'));
     }
 }
