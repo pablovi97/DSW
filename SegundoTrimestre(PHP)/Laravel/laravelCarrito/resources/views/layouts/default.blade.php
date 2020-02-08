@@ -49,9 +49,20 @@
                                 </li>
                             @endif
                             <li class="nav-item">
-                                <button class="btn btn-sm btn-success">  <a class="nav-link" href="/subirPedido">Subir pedido</a></button>
+                                <button class="btn btn-sm btn-success">  <a class="nav-link" href="/subirPedido"> <strong> Subir pedido</strong>
+                                   </a></button>
+                            </li>
+                            <li class="nav-item ml-1">
+                                <button class="btn btn-sm btn-warning">  <a class="nav-link" href="/factura"> <strong>facturas</strong> </a></button>
                             </li>
                         @else
+                        <li class="nav-item">
+                            <button class="btn btn-sm btn-success">  <a class="nav-link" href="/subirPedido"> <strong> Subir pedido</strong>
+                               </a></button>
+                        </li>
+                        <li class="nav-item ml-1">
+                            <button class="btn btn-sm btn-warning">  <a class="nav-link" href="/factura"> <strong>facturas</strong> </a></button>
+                        </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>

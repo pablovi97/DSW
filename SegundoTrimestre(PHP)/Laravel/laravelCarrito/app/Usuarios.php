@@ -56,4 +56,8 @@ class Usuarios extends Authenticatable
     {
         return $this->hasMany('App\Pedidos', 'id_usuario', 'id_usuario');
     }
+    public function getAuthPassword()
+    {
+        return $this->passwd;
+    }
 }

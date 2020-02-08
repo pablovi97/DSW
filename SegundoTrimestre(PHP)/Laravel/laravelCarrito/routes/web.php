@@ -15,12 +15,18 @@ Auth::routes();
 Route::get('/', 'ListarProductos@listar');
 
 Route::post('/pedido' ,'agregarProductos@recogerProductos');
-Route::get('/subirPedido' ,'verPedidos@listarPedidos');
+Route::get('/subirPedido' , 'verPedidos@listarPedidos' );
 
 Route::get('/mostrarproducto', 'PedidoController@mostraritem');
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/subirBDD', 'agregarProductos@hacerCompra');
+
+Route::get('/factura', [ 'middleware' => 'auth', 'uses' => 'Factura@listarFactura' ]);
+
+Route::get('/facturaDet', 'Factura@detallesFactura');
+
+
 //Route::get('/home', 'Factura@listarFactura')->name('home');
 //nombrecontrolador@metodo
 /*

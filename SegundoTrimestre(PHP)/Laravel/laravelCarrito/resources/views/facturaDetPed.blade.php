@@ -16,7 +16,7 @@
             </thead>
             <tbody>
                 <?php $res = 0; ?>
-    @foreach ($detalleped as $item)
+    @foreach ($listadetalles as $item)
     <tr>
     <th scope="row">{{$item->id_producto}}</th>
         <td>{{$item->cantidad}}</td>
@@ -31,12 +31,8 @@
           </tr>
     </tbody>
     </table>
-    <button class="btn btn-sm btn-warning  ">  <a class="nav-link" href="/subirBDD">Comprar!</a></button>
-  </div>
-    </div>
-    
-
 </div>
-
-
-@endsection
+    </div>
+</div>
+    @endsection
+    
