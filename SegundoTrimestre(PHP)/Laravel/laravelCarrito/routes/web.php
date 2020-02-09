@@ -25,7 +25,7 @@ Route::get('/subirBDD', 'agregarProductos@hacerCompra');
 Route::get('/factura', [ 'middleware' => 'auth', 'uses' => 'Factura@listarFactura' ]);
 
 Route::get('/facturaDet', 'Factura@detallesFactura');
-
+Route::post('/comentarios' ,'gestionComentarios@validarComentario');
 
 //Route::get('/home', 'Factura@listarFactura')->name('home');
 //nombrecontrolador@metodo
