@@ -2,7 +2,6 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -11,10 +10,29 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  * @property string $nick
  * @property string $passwd
  * @property string $rol
- * @property Pedido[] $pedidos
+ * @property Carrito[] $carritos
+ * @property Comentario[] $comentarios
  */
-class Usuarios extends Authenticatable implements JWTSubject
+class Usuario extends Authenticatable implements JWTSubject
 {
+    public function getJWTIdentifier()
+    {
+        return $this->getKey();
+    }
+    public function getJWTCustomClaims()
+    {
+        //vamos a emular que si un usuario es: "luo" pasa
+        //si es otro no pasa
+        if( $this->nick == 'cristian100'){
+            $rol = 'admin';
+        }else{
+            $rol = 'usuario';
+        }
+        //lo que pongamos en este array se agrega al tokey
+        return[
+            'rol' => $rol,
+        ];
+    }
     /**
      * The table associated with the model.
      *
@@ -44,26 +62,16 @@ class Usuarios extends Authenticatable implements JWTSubject
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function pedidos()
+    public function carritos()
     {
-        return $this->hasMany('App\Pedido', 'id_usuario', 'id_usuario');
+        return $this->hasMany('App\Carrito', 'id_usuario', 'id_usuario');
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function comentarios()
     {
         return $this->hasMany('App\Comentario', 'usuarioID', 'id_usuario');
-    }
-    public function getJWTIdentifier()
-    {
-        return $this->getKey();
-    }
-    public function getJWTCustomClaims()
-    {
-        //vamos a emular que si un usuario es: "luo" pasa
-        //si es otro no pasa
-        $rol = $this->rol;
-        //lo que pongamos en este array se agrega al tokey
-        return [
-            'rol' => $rol,
-        ];
     }
 }

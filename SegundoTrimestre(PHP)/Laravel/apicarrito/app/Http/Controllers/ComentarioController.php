@@ -67,6 +67,7 @@ class ComentarioController extends Controller
         $Comentario->usuarioID = $request->usuarioID ?? $Comentario->usuarioID;
         $Comentario->save();
         return new ComentarioResource($Comentario);
+        
     }
 
     /**

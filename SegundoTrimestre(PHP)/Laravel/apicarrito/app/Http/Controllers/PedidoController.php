@@ -55,7 +55,7 @@ class PedidoController extends Controller
             return new PedidoResource($pedido);
             */
         $pedido = new Pedido();
-        $pedido->id_usuario = $request->is_usuario ?? $pedido->id_usuario;
+        $pedido->id_usuario = $request->id_usuario ?? $pedido->id_usuario;
         $pedido->fechaPedido = $request->fechaPedido ?? $pedido->fechaPedido;
         $pedido->save();
         return new PedidoResource($pedido);
@@ -86,11 +86,15 @@ class PedidoController extends Controller
         $pedido->update($request->only(['nombrePedido', 'precio']));
 
 */
-        $pedido->id_usuario = $request->is_usuario ?? $pedido->id_usuario;
-        $pedido->fechaPedido = $request->fechaPedido ?? $pedido->fechaPedido;
-        $pedido->save();
-        $pedido->save();
-        return new PedidoResource($pedido);
+        if ($request->user()->id_usuario == $pedido->id_usuario) {
+            $pedido->id_usuario = $request->id_usuario ?? $pedido->id_usuario;
+            $pedido->fechaPedido = $request->fechaPedido ?? $pedido->fechaPedido;
+            $pedido->save();
+            $pedido->save();
+            return new PedidoResource($pedido);
+        } else {
+            return response()->json(['error' => 'You can only edit your own orders.'], 403);
+        }
     }
 
     /**

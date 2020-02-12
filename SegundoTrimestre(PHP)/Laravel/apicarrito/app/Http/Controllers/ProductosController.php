@@ -47,15 +47,18 @@ $this->middleware('auth:api')->except(['index','show']);
     //POST
     public function store(Request $request)
     {
-        /*
+    
         $producto = Producto::create([
             'nombreProducto' =>  $request->nombreProducto,
             'stock' => $request->stock,
+            'precio' => $request->precio,
             ]);
 
 
             return new ProductoResource($producto);
-            */
+
+  /*
+           
         $producto = new Producto();
         $producto->nombreProducto = $request->nombreProducto ?? $producto->nombreProducto;
         $producto->stock = $request->stock ?? $producto->stock;
@@ -63,6 +66,7 @@ $this->middleware('auth:api')->except(['index','show']);
         $producto->precio = $request->precio ?? $producto->precio;
         $producto->save();
         return new ProductoResource($producto);
+      */
     }
 
     /**
