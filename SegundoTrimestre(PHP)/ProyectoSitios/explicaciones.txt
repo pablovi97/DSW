@@ -1,0 +1,7 @@
+instrucciones:
+
+
+1.-El profesor debe introducir  el numero de estudiantes y sus respectivos emails en el recuadro
+ de abajo de la froma que esta explicada
+2.-El que consiguio mayor nota se conecta primero , elige sitio y asi susecivamente hasta
+ que se hayan elegido todos los sitios (los siitos elegidos apareceran en rojo);

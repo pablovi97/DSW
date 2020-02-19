@@ -13,6 +13,7 @@ if ($res != -1) {
 
         die();
     }else{
+        //se envian los datos al index por la url
         $params = localizar_sitios();
         header('location:elecciondestios.php?orden='. $res .'&param='.$params);
         die();

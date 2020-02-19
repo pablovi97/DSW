@@ -40,7 +40,10 @@
 
                 </div>
             </form>
-
+           
+            <form action="subirdato.php" method="post">
+            <input type="submit" class="btn btn-info" value="Enviar a base de datos">
+            </form>
 
         </center>
 
@@ -49,29 +52,29 @@
     ?>
         <center>
 
-        <div class="container">
-            <div class="row">
-                <div class="col-4">
-          
-                </div>
-            <div class="form-group col-4 my-5 py-2  bg-info">
-                <form action="clavesalumnos.php" method="post">
-                    <label for="clave " class="display-4">Introduce tu clave :</label>
-                    <input type="text" class="form-control" name="clave" id="" aria-describedby="helpId" placeholder="">
-                    <input type="submit" class="btn btn-success" value="Enviar">
+            <div class="container">
+                <div class="row">
+                    <div class="col-4">
 
-                </form>
-   
-                <label id="fail"></label>
-            </div>
-            <div class="col-4">
-             <!--
+                    </div>
+                    <div class="form-group col-4 my-5 py-2  bg-info">
+                        <form action="clavesalumnos.php" method="post">
+                            <label for="clave " class="display-4">Introduce tu clave :</label>
+                            <input type="text" class="form-control" name="clave" id="" aria-describedby="helpId" placeholder="">
+                            <input type="submit" class="btn btn-success" value="Enviar">
+
+                        </form>
+
+                        <label id="fail"></label>
+                    </div>
+                    <div class="col-4">
+                        <!--
                 <p> echate una partida amigo!:</p>
                 <iframe id="iframe-in-game" class="direct-field" 
                 src="https://www.cooljuegos.com/embed/mortal-kombat-4/" marginwidth="0" marginheight="0" frameborder="0" scrolling="no" width="640"
                  height="435" data-iframe-src="https://www.cooljuegos.com/embed/mortal-kombat-4/" allow="autoplay; fullscreen" allowfullscreen=""></iframe>-->
+                    </div>
                 </div>
-            </div>
             </div>
         </center>
 

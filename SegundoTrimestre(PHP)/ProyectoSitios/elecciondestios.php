@@ -184,7 +184,7 @@
 
     var sit = 0;
     $(".sitio").on('click', function() {
-
+      //Cuando clickas en el el div se pone en los textfield el id y el orden
 
       var id = $(this).attr("id");
       document.getElementById("ord").value = orden;
@@ -195,9 +195,10 @@
     var para = obtenerValorParametro();
     console.log("param " + para);
     let gest = gestiones(para, orden);
-  
+
 
     function obtenerValorParametro() {
+      //se leee la url para extraer los parametros
       var sPaginaURL = window.location.search.substring(1);
       var sURLVariables = sPaginaURL.split('&');
       for (var i = 0; i < sURLVariables.length; i++) {
@@ -221,14 +222,36 @@
       let ids = param[0].split(",");
       console.log(ids);
       for (let elem of ids) {
-        //console.log(elem);
+
         let indice = document.getElementById(elem).style.backgroundColor = 'red';
-        //indice.disabled = true;
-        //indice.style.backgroundColor = 'red';
+        document.getElementById(elem).id = '-1';
+
 
       }
       return ids;
     }
+    /*
+    var sitio = document.getElementsByClassName('sitio');
+    var cont = 0;
+    sitio.forEach(function() {
+      if (this.id != -1) {
+        cont++;
+      }
+
+    });
+
+    if (cont == 0) {
+      $(document).ready(function() {
+        const url = '/subirdato.php'
+
+        $.get(url, function(respuesta, status) {
+          if (status == 'success') {
+            console.log(respuesta.name)
+          }
+        })
+      });
+    }
+    */
   </script>
 
 
